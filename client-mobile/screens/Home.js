@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
 
-    const url = 'https://feda-27-50-29-117.ap.ngrok.io'
+    const url = 'https://090a-27-50-29-117.ap.ngrok.io'
     const [movies, setMovies] = useState([])
 
     const fetchData = async () => {

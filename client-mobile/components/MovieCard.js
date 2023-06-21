@@ -16,10 +16,9 @@ const MovieCard = ({ movie }) => {
                 roundness: 8,
                 isV3: false
             }} />
-            <Card.Content>
-                <Text variant="titleLarge">Card title </Text>
-                <Title variant="titleLarge">Card title </Title>
-                <Paragraph>Card content</Paragraph>
+            <Card.Content style={{ marginTop: 5 }}>
+                <Text variant="headlineLarge">{movie?.title}</Text>
+                <Paragraph>{movie?.synopsis}</Paragraph>
             </Card.Content>
         </Card>
     )

@@ -1,14 +1,37 @@
-import { StyleSheet } from 'react-native';
-import { FlatList, Text, View } from "react-native"
-import { Button } from 'react-native-paper';
+import { StyleSheet, FlatList, View } from "react-native"
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import MovieCard from '../components/MovieCard'
+import { useEffect, useState } from "react";
 
-const Home = ({ navigation }) => {
+const Home = () => {
+
+    const url = 'https://feda-27-50-29-117.ap.ngrok.io'
+    const [movies, setMovies] = useState([])
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(url + '/movies')
+            const data = await response.json()
+            setMovies(data)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
-        <View style={styles.container}>
-            {/* <FlatList /> */}
-            <Text style={{ color: 'white' }}>Home</Text>
-            <Button mode='contained' style={{ marginTop: 20.0 }} onPress={() => navigation.navigate('Detail')}>Go Detail</Button>
-        </View>
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.container}>
+                <FlatList
+                    data={movies}
+                    renderItem={({ item }) => <MovieCard movie={item} />}
+                    keyExtractor={(item) => item?.id}
+                />
+            </SafeAreaView>
+        </SafeAreaProvider>
     )
 }
 
@@ -16,8 +39,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 });
 

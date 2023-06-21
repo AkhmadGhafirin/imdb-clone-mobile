@@ -1,0 +1,184 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 2,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 3,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 4,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 5,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 6,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 7,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 8,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 9,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 10,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 11,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        },
+        {
+            "id": 12,
+            "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+            "slug": "spider-man-across-the-spider-verse",
+            "synopsis": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered.",
+            "trailerUrl": "https://www.youtube.com/watch?v=shW9i6k8cB0",
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX600_.jpg",
+            "rating": 9,
+            "genreId": 1,
+            "authorId": 1,
+            "Genre": {
+                "id": 1,
+                "name": "Animation"
+            }
+        }
+    ]
+}

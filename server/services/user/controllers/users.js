@@ -9,6 +9,14 @@ class UserController {
     static async register(req, res, next) {
         try {
             const { email, password, username, phoneNumber, address } = req.body
+
+            if (!email) throw { name: 'RegisterEmptyEmail' }
+            if (!password) throw { name: 'RegisterEmptyPassword' }
+
+            const findUser = await User.findByEmail(email)
+
+            if (findUser) throw { name: 'RegisterEmailUniqueError' }
+
             const registeredUser = await User.createUser({ email, password, role: 'Admin', username, phoneNumber, address })
             res.status(201).json({
                 id: registeredUser.id,
@@ -26,23 +34,21 @@ class UserController {
     static async login(req, res, next) {
         try {
             const { email, password } = req.body
-            console.log(req.body, 'login body');
-            // if (!email) throw { name: 'LoginErrorEmpty', type: 'emptyEmail' }
-            // if (!password) throw { name: 'LoginErrorEmpty', type: 'emptyPassword' }
+
+            if (!email) throw { name: 'LoginEmptyEmail' }
+            if (!password) throw { name: 'LoginEmptyPassword' }
 
             const loginUser = await User.findByEmail(email)
-            console.log(loginUser, '<<<<<< LOGINUSER');
 
-            // if (!loginUser) throw { name: 'LoginError' }
-            // if (!comparePassword(password, loginUser.password)) throw { name: 'LoginError' }
+            if (!loginUser) throw { name: 'LoginError' }
+            if (!comparePassword(password, loginUser.password)) throw { name: 'LoginError' }
 
             res.status(200).json({
-                message: 'BERHASIL LOGIN'
-                // id: loginUser.id,
-                // username: loginUser.username,
-                // email: loginUser.email,
-                // role: loginUser.role,
-                // access_token: generateToken({ id: loginUser.id })
+                id: loginUser._id,
+                username: loginUser.username,
+                email: loginUser.email,
+                role: loginUser.role,
+                access_token: generateToken({ _id: loginUser._id })
             })
         } catch (err) {
             next(err)

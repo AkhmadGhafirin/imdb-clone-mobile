@@ -1,14 +1,18 @@
 import { useNavigation } from '@react-navigation/native'
 import { StyleSheet } from 'react-native'
-import { Card, Text, Title, Paragraph } from 'react-native-paper'
+import { Card, Text, Paragraph } from 'react-native-paper'
 
 const MovieCard = ({ movie }) => {
     const navigation = useNavigation()
 
+    const limitSynopsis = (synopsis) => {
+        return synopsis?.length < 200 ? synopsis : `${synopsis?.slice(0, 200)}...`
+    }
+
     return (
         <Card onPress={() => {
-            navigation.navigate('Detail')
-        }} style={{ margin: 10 }} theme={{
+            navigation.navigate('Detail', { movie: movie })
+        }} style={styles.cardContainer} theme={{
             roundness: 8,
             isV3: false
         }}>
@@ -16,12 +20,30 @@ const MovieCard = ({ movie }) => {
                 roundness: 8,
                 isV3: false
             }} />
-            <Card.Content style={{ marginTop: 5 }}>
-                <Text variant="headlineLarge">{movie?.title}</Text>
-                <Paragraph>{movie?.synopsis}</Paragraph>
+            <Card.Content style={styles.cardContent}>
+                <Text style={styles.cardTitle} variant="headlineSmall">{movie?.title}</Text>
+                <Paragraph style={styles.cardSynopsis}>{limitSynopsis(movie?.synopsis)}</Paragraph>
             </Card.Content>
         </Card>
     )
 }
+
+const styles = StyleSheet.create({
+    cardContainer: {
+        margin: 10,
+        backgroundColor: "#212529",
+    },
+    cardContent: {
+        marginTop: 10
+    },
+    cardTitle: {
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    cardSynopsis: {
+        color: 'white',
+        marginTop: 6
+    }
+})
 
 export default MovieCard

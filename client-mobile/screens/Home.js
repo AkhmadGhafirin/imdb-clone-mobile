@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList, View } from "react-native"
+import { StyleSheet, FlatList } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MovieCard from '../components/MovieCard'
 import { useEffect, useState } from "react";
@@ -18,9 +18,9 @@ const Home = () => {
         }
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
     return (
         <SafeAreaProvider>

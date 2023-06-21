@@ -1,16 +1,12 @@
 'use strict'
 
-const { Movie, User, Cast, Genre, sequelize } = require('../models')
+const { Movie, Cast, Genre, sequelize } = require('../models')
 
 class MovieController {
     static async fetchMovies(req, res, next) {
         try {
             const movies = await Movie.findAll({
                 include: [
-                    {
-                        model: User,
-                        attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
-                    },
                     {
                         model: Genre,
                         attributes: { exclude: ['createdAt', 'updatedAt'] }

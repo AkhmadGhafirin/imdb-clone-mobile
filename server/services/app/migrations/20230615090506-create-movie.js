@@ -39,6 +39,10 @@ module.exports = {
           key: 'id'
         }
       },
+      authorId: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

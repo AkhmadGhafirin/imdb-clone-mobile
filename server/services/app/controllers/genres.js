@@ -1,6 +1,6 @@
 'use strict'
 
-const { Genre, Movie, Cast, sequelize } = require('../models')
+const { Genre, sequelize } = require('../models')
 
 class GenreController {
     static async fetchGenres(req, res, next) {

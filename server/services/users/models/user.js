@@ -11,6 +11,14 @@ class User {
         return users
     }
 
+    static async findAll() {
+        return await this.getCollections().find().project({ password: 0 }).toArray()
+    }
+
+    static async findById(_id) {
+        return await this.getCollections().findOne({ _id: new ObjectId(_id) }, { projection: { password: 0 } })
+    }
+
     static async findByEmail(email) {
         return await this.getCollections().findOne({ email: email })
     }

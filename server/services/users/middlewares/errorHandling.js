@@ -49,6 +49,10 @@ function errorHandling(err, req, res, next) {
             code = 403
             message = 'Forbidden error in authorization'
             break;
+        case 'NotFound':
+            code = 404
+            message = 'User not found'
+            break;
         default:
             code = 500
             message = 'Internal Server Error'

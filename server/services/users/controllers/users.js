@@ -54,6 +54,29 @@ class UserController {
             next(err)
         }
     }
+
+    static async findAll(req, res, next) {
+        try {
+            const users = await User.findAll()
+            res.status(200).json(users)
+        } catch (err) {
+            next(err)
+        }
+    }
+
+    static async findById(req, res, next) {
+        try {
+            const { _id } = req.params
+
+            const user = await User.findById(_id)
+
+            if (!user) throw { name: 'NotFound' }
+
+            res.status(200).json(user)
+        } catch (err) {
+            next(err)
+        }
+    }
 }
 
 module.exports = UserController

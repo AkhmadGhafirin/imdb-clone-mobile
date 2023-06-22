@@ -1,20 +1,14 @@
-const Redis = require("ioredis");
+'use strict'
+require('dotenv').config()
+const express = require('express')
+const cors = require('cors')
+const router = require('./routes')
+const app = express()
+const PORT = process.env.PORT || 3000
 
-const redis = new Redis({
-    port: 12623, // Redis port
-    host: "redis-12623.c292.ap-southeast-1-1.ec2.cloud.redislabs.com", // Redis host
-    // username: "default", // needs Redis >= 6
-    password: "OxEqKoarETQC41qIenLPC8GLRW3NzE7g",
-    // db: 0, // Defaults to 0
-});
+app.use(cors())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(router)
 
-redis.set("mykey", "value"); // Returns a promise which resolves to "OK" when the command succeeds.
-
-// ioredis supports the node.js callback style
-redis.get("mykey", (err, result) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(result); // Prints "value"
-  }
-});
+app.listen(PORT, () => console.log(`Listening on PORT:${PORT}`))

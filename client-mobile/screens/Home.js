@@ -1,20 +1,26 @@
-import { StyleSheet, FlatList, View } from "react-native"
+import { StyleSheet, FlatList, Alert } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MovieCard from '../components/MovieCard'
 import { useEffect, useState } from "react";
+import { errorHelper } from "../helpers/error";
 
 const Home = () => {
 
-    const url = 'https://090a-27-50-29-117.ap.ngrok.io'
+    const url = 'https://api-cuisines.akhmadghafirin.com/public'
     const [movies, setMovies] = useState([])
 
     const fetchData = async () => {
         try {
             const response = await fetch(url + '/movies')
+            if (!response.ok) {
+                throw await response.text()
+            }
             const data = await response.json()
             setMovies(data)
+            console.log(data);
         } catch (err) {
-            console.log(err);
+            console.log(errorHelper(err));
+            Alert.alert(errorHelper(err))
         }
     }
 
@@ -40,6 +46,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#000000',
     },
-});
+})
 
 export default Home

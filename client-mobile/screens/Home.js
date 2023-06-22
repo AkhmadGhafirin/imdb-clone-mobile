@@ -3,19 +3,14 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MovieCard from '../components/MovieCard'
 import { useEffect, useState } from "react";
 import { errorHelper } from "../helpers/error";
+import axios from "axios"
 
 const Home = () => {
 
-    const url = 'https://api-cuisines.akhmadghafirin.com/public'
     const [movies, setMovies] = useState([])
-
     const fetchData = async () => {
         try {
-            const response = await fetch(url + '/movies')
-            if (!response.ok) {
-                throw await response.text()
-            }
-            const data = await response.json()
+            const { data } = await axios.get('https://api-cuisines.akhmadghafirin.com/public/movies')
             setMovies(data)
             console.log(data);
         } catch (err) {

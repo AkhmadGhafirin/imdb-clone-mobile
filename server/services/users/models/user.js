@@ -19,6 +19,10 @@ class User {
         return await this.getCollections().findOne({ _id: new ObjectId(_id) }, { projection: { password: 0 } })
     }
 
+    static async deleteById(_id) {
+        return await this.getCollections().deleteOne({ _id: new ObjectId(_id) }, { projection: { password: 0 } })
+    }
+
     static async findByEmail(email) {
         return await this.getCollections().findOne({ email: email })
     }

@@ -13,18 +13,18 @@ class UserController {
             if (!email) throw { name: 'RegisterEmptyEmail' }
             if (!password) throw { name: 'RegisterEmptyPassword' }
 
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+            if (!emailRegex.test(email)) throw { name: 'RegisterInvalidEmail' }
+
             const findUser = await User.findByEmail(email)
 
             if (findUser) throw { name: 'RegisterEmailUniqueError' }
 
             const registeredUser = await User.createUser({ email, password, role: 'Admin', username, phoneNumber, address })
+            console.log(registeredUser, 'register services');
             res.status(201).json({
-                id: registeredUser.id,
-                email: registeredUser.email,
-                role: registeredUser.role,
-                username: registeredUser.username,
-                phoneNumber: registeredUser.phoneNumber,
-                address: registeredUser.address,
+                message: 'Successfully register user'
             })
         } catch (err) {
             next(err)
@@ -37,6 +37,10 @@ class UserController {
 
             if (!email) throw { name: 'LoginEmptyEmail' }
             if (!password) throw { name: 'LoginEmptyPassword' }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+            if (!emailRegex.test(email)) throw { name: 'LoginInvalidEmail' }
 
             const loginUser = await User.findByEmail(email)
 
@@ -73,6 +77,23 @@ class UserController {
             if (!user) throw { name: 'NotFound' }
 
             res.status(200).json(user)
+        } catch (err) {
+            next(err)
+        }
+    }
+
+    static async deleteById(req, res, next) {
+        try {
+            const { _id } = req.params
+
+            const user = await User.findById(_id)
+            if (!user) throw { name: 'NotFound' }
+
+            await User.deleteById(_id)
+
+            res.status(200).json({
+                message: 'Successfully delete user'
+            })
         } catch (err) {
             next(err)
         }

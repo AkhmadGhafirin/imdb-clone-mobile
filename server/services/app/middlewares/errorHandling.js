@@ -57,6 +57,7 @@ function errorHandling(err, req, res, next) {
             break;
     }
     res.status(code).json({
+        statusCode: code,
         message
     })
 }

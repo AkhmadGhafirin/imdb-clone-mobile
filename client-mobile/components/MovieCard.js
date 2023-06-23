@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
 
     return (
         <Card onPress={() => {
-            navigation.navigate('Detail', { movie: movie })
+            navigation.navigate('Detail', { slug: movie?.slug })
         }} style={styles.cardContainer} theme={{
             roundness: 8,
             isV3: false

@@ -1,11 +1,30 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, ScrollView, FlatList, Linking } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Text, Image, ScrollView, FlatList, Linking, Alert } from "react-native";
 import { Button } from "react-native-paper";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import CastCard from "../components/CastCard"
+import axios from "axios"
 
 const Detail = ({ route }) => {
-    const { movie } = route.params
+    const { slug } = route.params
+
+    const [movie, setMovie] = useState({})
+
+    const fetchData = async () => {
+        try {
+            const { data } = await axios.get(`https://api-cuisines.akhmadghafirin.com/public/movies/${slug}`)
+            setMovie(data)
+            console.log(data);
+        } catch (err) {
+            console.log(errorHelper(err));
+            Alert.alert(errorHelper(err))
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     const onClickWatchTrailer = () => {
         Linking.openURL(movie?.trailerUrl)
     }

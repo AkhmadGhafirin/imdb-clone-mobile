@@ -2,7 +2,7 @@
 
 const User = require('../models/user')
 
-const { comparePassword } = require('../helpers/bcrypt')
+const { comparePassword, hashPassword } = require('../helpers/bcrypt')
 const { generateToken } = require('../helpers/jwt')
 
 class UserController {
@@ -16,13 +16,12 @@ class UserController {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
             if (!emailRegex.test(email)) throw { name: 'RegisterInvalidEmail' }
-
             const findUser = await User.findByEmail(email)
 
             if (findUser) throw { name: 'RegisterEmailUniqueError' }
 
-            const registeredUser = await User.createUser({ email, password, role: 'Admin', username, phoneNumber, address })
-            console.log(registeredUser, 'register services');
+            const hashedPassword = hashPassword(password)
+            await User.createUser({ email, password: hashedPassword, role: 'Admin', username, phoneNumber, address })
             res.status(201).json({
                 message: 'Successfully register user'
             })
@@ -48,7 +47,7 @@ class UserController {
             if (!comparePassword(password, loginUser.password)) throw { name: 'LoginError' }
 
             res.status(200).json({
-                id: loginUser._id,
+                _id: loginUser._id,
                 username: loginUser.username,
                 email: loginUser.email,
                 role: loginUser.role,

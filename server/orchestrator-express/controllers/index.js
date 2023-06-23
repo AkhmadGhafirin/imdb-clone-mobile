@@ -1,6 +1,5 @@
 const axios = require('axios')
 const redis = require('../config/redis')
-const { use } = require('../routes')
 
 const APP_SERVER_URL = process.env.APP_SERVER_URL || 'http://localhost:3001'
 const USER_SERVER_URL = process.env.USER_SERVER_URL || 'http://localhost:3002'

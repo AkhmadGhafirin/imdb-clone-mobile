@@ -23,31 +23,6 @@ class MovieController {
         }
     }
 
-    static async fetchMovieBySlug(req, res, next) {
-        try {
-            const { slug } = req.params
-            const movie = await Movie.findOne({
-                where: { slug },
-                include: [
-                    {
-                        model: Genre,
-                        attributes: { exclude: ['createdAt', 'updatedAt'] }
-                    },
-                    {
-                        model: Cast,
-                        attributes: { exclude: ['createdAt', 'updatedAt'] }
-                    },
-                ]
-            })
-
-            if (!movie) throw { name: 'NotFound' }
-
-            res.status(200).json(movie)
-        } catch (err) {
-            next(err)
-        }
-    }
-
     static async fetchMovieById(req, res, next) {
         try {
             const { id } = req.params

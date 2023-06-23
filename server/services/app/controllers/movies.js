@@ -39,6 +39,9 @@ class MovieController {
                     },
                 ]
             })
+
+            if (!movie) throw { name: 'NotFound' }
+
             res.status(200).json(movie)
         } catch (err) {
             next(err)
@@ -61,6 +64,7 @@ class MovieController {
                     },
                 ]
             })
+            if (!movie) throw { name: 'NotFound' }
             res.status(200).json(movie)
         } catch (err) {
             next(err)

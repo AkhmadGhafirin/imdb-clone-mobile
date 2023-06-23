@@ -35,7 +35,7 @@ class Controller {
             const { data } = await axios.delete(USER_SERVER_URL + `/users/${_id}`)
             res.status(200).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 
@@ -52,25 +52,25 @@ class Controller {
 
             res.status(200).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 
     static async fetchMovieById(req, res, next) {
         try {
             const { id } = req.params
-            const movieCache = await redis.get(`movie:${id}`)
+            const movieCache = await redis.get(`movies:${id}`)
             if (movieCache) {
                 return res.status(200).json(JSON.parse(movieCache))
             }
 
             const { data } = await axios.get(APP_SERVER_URL + `/movies/${id}`)
 
-            redis.set(`movie:${id}`, JSON.stringify(data))
+            redis.set(`movies:${id}`, JSON.stringify(data))
 
             res.status(200).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 
@@ -86,7 +86,7 @@ class Controller {
 
             res.status(201).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 
@@ -103,7 +103,7 @@ class Controller {
 
             res.status(200).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 
@@ -117,7 +117,7 @@ class Controller {
 
             res.status(200).json(data)
         } catch (err) {
-            next(err)
+            next(err?.response?.data)
         }
     }
 }

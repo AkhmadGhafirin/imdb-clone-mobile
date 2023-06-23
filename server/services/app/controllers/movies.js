@@ -70,8 +70,7 @@ class MovieController {
     static async createMovie(req, res, next) {
         const t = await sequelize.transaction()
         try {
-            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, casts } = req.body
-            const { id: authorId } = req.userData
+            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId, casts } = req.body
             const createdMovie = await Movie.create({
                 title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId
             }, { transaction: t })
@@ -101,8 +100,7 @@ class MovieController {
         const t = await sequelize.transaction()
         try {
             const { id } = req.params
-            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, casts } = req.body
-            const { id: authorId } = req.userData
+            const { title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId, casts } = req.body
 
             const findMovie = await Movie.findOne({ where: { id } }, { transaction: t })
             if (!findMovie) throw { name: 'NotFound' }

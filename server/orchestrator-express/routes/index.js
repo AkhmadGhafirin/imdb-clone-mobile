@@ -8,7 +8,7 @@ router.delete('/users/:_id', Controller.deleteUser)
 router.get('/movies', Controller.fetchMovies)
 router.post('/movies', Controller.createMovie)
 router.put('/movies/:id', Controller.updateMovie)
+router.delete('/movies/:id', Controller.deleteMovie)
 router.get('/movies/:id', Controller.fetchMovieById)
-router.get('/movies/:slug', Controller.fetchMovieBySlug)
 
 module.exports = router

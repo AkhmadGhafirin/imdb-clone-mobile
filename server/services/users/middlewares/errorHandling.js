@@ -9,6 +9,10 @@ function errorHandling(err, req, res, next) {
             code = 400
             message = 'Email is required'
             break;
+        case 'RegisterInvalidEmail':
+            code = 400
+            message = 'Email is invalid'
+            break;
         case 'RegisterEmptyPassword':
             code = 400
             message = 'Password is required'
@@ -20,6 +24,10 @@ function errorHandling(err, req, res, next) {
         case 'LoginEmptyEmail':
             code = 400
             message = 'Email is required'
+            break;
+        case 'LoginInvalidEmail':
+            code = 400
+            message = 'Email is invalid'
             break;
         case 'LoginEmptyPassword':
             code = 400
@@ -59,6 +67,7 @@ function errorHandling(err, req, res, next) {
             break;
     }
     res.status(code).json({
+        statusCode: code,
         message
     })
 }

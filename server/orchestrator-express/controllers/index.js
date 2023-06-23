@@ -1,5 +1,6 @@
 const axios = require('axios')
 const redis = require('../config/redis')
+const { use } = require('../routes')
 
 const APP_SERVER_URL = process.env.APP_SERVER_URL || 'http://localhost:3001'
 const USER_SERVER_URL = process.env.USER_SERVER_URL || 'http://localhost:3002'
@@ -47,10 +48,16 @@ class Controller {
             }
 
             const { data } = await axios.get(APP_SERVER_URL + '/movies')
+            const { data: users } = await axios.get(USER_SERVER_URL + `/users`)
 
-            redis.set('movies:all', JSON.stringify(data))
+            const result = data.map(el => {
+                el.Author = users.find(user => user?._id == el?.authorId)
+                return el
+            })
 
-            res.status(200).json(data)
+            redis.set('movies:all', JSON.stringify(result))
+
+            res.status(200).json(result)
         } catch (err) {
             next(err?.response?.data)
         }
@@ -65,10 +72,15 @@ class Controller {
             }
 
             const { data } = await axios.get(APP_SERVER_URL + `/movies/${id}`)
+            const { data: user } = await axios.get(USER_SERVER_URL + `/users/${data?.authorId}`)
 
-            redis.set(`movies:${id}`, JSON.stringify(data))
+            const result = {
+                ...data,
+                Author: user
+            }
+            redis.set(`movies:${id}`, JSON.stringify(result))
 
-            res.status(200).json(data)
+            res.status(200).json(result)
         } catch (err) {
             next(err?.response?.data)
         }

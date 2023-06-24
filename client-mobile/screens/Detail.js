@@ -3,30 +3,38 @@ import { StyleSheet, View, Text, Image, ScrollView, FlatList, Linking, Alert } f
 import { Button } from "react-native-paper";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import CastCard from "../components/CastCard"
-import axios from "axios"
+import { useQuery } from "@apollo/client";
+import { GET_MOVIE } from "../config/queries";
+import Loading from "../components/Loading";
+import { errorHelper } from "../helpers/error";
 
 const Detail = ({ route }) => {
-    const { slug } = route.params
+    const { id } = route.params
+
+    const { loading, data, error } = useQuery(GET_MOVIE, {
+        variables: {
+            movieId: +id
+        },
+    });
 
     const [movie, setMovie] = useState({})
 
-    const fetchData = async () => {
-        try {
-            const { data } = await axios.get(`https://api-cuisines.akhmadghafirin.com/public/movies/${slug}`)
-            setMovie(data)
-            console.log(data);
-        } catch (err) {
-            console.log(errorHelper(err));
-            Alert.alert(errorHelper(err))
-        }
-    }
-
     useEffect(() => {
-        fetchData()
-    }, [])
+        setMovie(data?.movie || {})
+    }, [data])
 
     const onClickWatchTrailer = () => {
         Linking.openURL(movie?.trailerUrl)
+    }
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
+
+    if (error) {
+        Alert.alert(errorHelper(error))
     }
 
     return (
@@ -52,6 +60,10 @@ const Detail = ({ route }) => {
                         <Text style={styles.textLabel}>Synopsis</Text>
                         <Text style={styles.textSynopsis}>
                             {movie?.synopsis}
+                        </Text>
+                        <Text style={styles.textLabel}>Author</Text>
+                        <Text style={styles.textTitle}>
+                            {movie?.Author?.username}
                         </Text>
                         <Text style={styles.textLabel}>Casts</Text>
                         <FlatList

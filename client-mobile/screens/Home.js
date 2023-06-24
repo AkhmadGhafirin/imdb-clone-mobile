@@ -1,27 +1,29 @@
-import { StyleSheet, FlatList, Alert } from "react-native"
+import { StyleSheet, FlatList, Alert, ActivityIndicator, View } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import MovieCard from '../components/MovieCard'
 import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_MOVIES } from "../config/queries";
+import Loading from "../components/Loading";
 import { errorHelper } from "../helpers/error";
-import axios from "axios"
 
 const Home = () => {
-
+    const { loading, data, error } = useQuery(GET_MOVIES)
     const [movies, setMovies] = useState([])
-    const fetchData = async () => {
-        try {
-            const { data } = await axios.get('https://api-cuisines.akhmadghafirin.com/public/movies')
-            setMovies(data)
-            console.log(data);
-        } catch (err) {
-            console.log(errorHelper(err));
-            Alert.alert(errorHelper(err))
-        }
-    }
 
     useEffect(() => {
-        fetchData()
-    }, [])
+        setMovies(data?.movies || [])
+    }, [data])
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
+
+    if (error) {
+        Alert.alert(errorHelper(error))
+    }
 
     return (
         <SafeAreaProvider>
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000000',
-    },
+    }
 })
 
 export default Home

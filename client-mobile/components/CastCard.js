@@ -5,7 +5,7 @@ const CastCard = ({ cast }) => (
         <Image style={styles.castProfilePicture} source={{ uri: cast?.profilePict }} />
         <Text style={styles.castName}>{cast?.name}</Text>
     </View>
-);
+)
 
 const styles = StyleSheet.create({
     castContainer: {

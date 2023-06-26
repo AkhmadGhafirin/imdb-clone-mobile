@@ -13,7 +13,7 @@ services:
       - "4002:4002"
     environment:
       - DATABASE_URL=${MONGO_URL}
-      - JWT_SECRET_KEY=${}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
   orchestrator:
     build: ./orchestrator
     container_name: orchestrator

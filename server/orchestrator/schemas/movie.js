@@ -1,5 +1,5 @@
-const APP_HOST = 'http://localhost:3001'
-const USER_HOST = 'http://localhost:3002'
+const APP_HOST = process.env.APP_SERVICE_URL || 'http://localhost:3001'
+const USER_HOST = process.env.USER_SERVICE_URL || 'http://localhost:3002'
 const axios = require('axios')
 const redis = require('../config/redis')
 
@@ -59,7 +59,7 @@ const resolvers = {
     Query: {
         movies: async () => {
             const moviesCache = await redis.get('movies:all')
-            if (moviesCache) return JSON.parse(moviesCache)
+            if (moviesCache && moviesCache.length > 0) return JSON.parse(moviesCache)
 
             const { data } = await axios.get(APP_HOST + '/movies')
             const { data: users } = await axios.get(USER_HOST + '/users')

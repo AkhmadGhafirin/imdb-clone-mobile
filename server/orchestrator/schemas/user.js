@@ -1,4 +1,4 @@
-const HOST = 'http://localhost:3002'
+const HOST = process.env.USER_SERVICE_URL || 'http://localhost:3002'
 const axios = require('axios')
 const redis = require('../config/redis')
 

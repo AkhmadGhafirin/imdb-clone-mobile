@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://74bf-180-254-67-65.ap.ngrok.io';
+export const BASE_URL = 'https://movies-api.akhmadghafirin.com';
